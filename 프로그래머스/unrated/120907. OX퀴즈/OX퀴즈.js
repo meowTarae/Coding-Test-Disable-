@@ -1,7 +1,7 @@
 function solution(quiz) {
-    return quiz.map((v) => {
-    let arr = [...v.split(" ")];
-    let result = arr[1] === "+" ? +arr[0] + +arr[2] : arr[0] - arr[2];
-    return result === parseInt(arr.pop()) ? "O" : "X";
+    return   quiz.map((v) => {
+    let [num1, operator, num2, , num3] = [...v.split(" ")];
+    let result = operator === "+" ? +num1 + +num2 : num1 - num2;
+    return result === parseInt(num3) ? "O" : "X";
   })
 }
