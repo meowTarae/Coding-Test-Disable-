@@ -21,4 +21,9 @@ return (
     })
   )
 );
+    
+return (arr1.map((v, i) =>
+    (v | arr2[i]).toString(2).replaceAll(0, " ").replaceAll(1, "#")
+))    
+    
 }
