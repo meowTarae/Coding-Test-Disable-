@@ -15,7 +15,11 @@ function solution(wallpaper) {
         arrX.push(storage[i][0]);
         arrY.push(storage[i][1]);
     }
-    arrX.sort((a,b)=>a-b);
-    arrY.sort((a,b)=>a-b);
-    return [arrX[0], arrY[0], arrX[arrX.length-1]+1, arrY[arrY.length-1]+1];
+    
+    return [
+        Math.min(...arrX),
+        Math.min(...arrY),
+        Math.max(...arrX) + 1,
+        Math.max(...arrY) + 1,
+    ];
 }
