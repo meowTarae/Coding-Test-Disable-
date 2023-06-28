@@ -3,7 +3,7 @@ function solution(s) {
     
     while(s!='1'){
         count++;
-        deleted += [...s].filter(v=>!+v).length;
+        deleted += s.split('1').join('').length;
         
         s = [...s].filter(v=>+v).length.toString(2);
     }
