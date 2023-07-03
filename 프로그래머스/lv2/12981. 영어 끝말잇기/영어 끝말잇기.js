@@ -1,15 +1,10 @@
 function solution(n, words) {
     let [person, round] = [-1, -1];
-    const storage = [];
+    const storage = [words[0]];
     
-    for(let i=0; i<words.length; i++){
+    for(let i=1; i<words.length; i++){
         round = ~~(i/n+1);
         const word = words[i];
-        
-        if(i == 0) {
-            storage.push(word);
-            continue;
-        }
         
         const s = storage.at(-1).at(-1);
         // 1. 뒷글자랑 앞글자랑 같은지
