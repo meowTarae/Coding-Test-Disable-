@@ -8,7 +8,7 @@ function solution(k, tangerine) {
     for(let i=0; i<storage.length; i++){
         count++;
         if(storage[i]>=k) break;
-        else k-= storage[i];    
+        k-= storage[i];    
     }
     
     return count;
