@@ -1,4 +1,3 @@
-// 1412
 function solution(want, number, discount) {
     let count = 0;
     const numberCount = number.reduce((a,b)=>a+b);
@@ -7,7 +6,6 @@ function solution(want, number, discount) {
         wantObj[want[i]] = number[i];
     }
     const wantObjToArray = Object.entries(wantObj).sort().toString();
-    console.log(wantObjToArray)
     
     const makeObj = (arr) =>{
         const obj = {};
