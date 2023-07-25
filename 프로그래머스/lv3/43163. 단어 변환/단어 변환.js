@@ -3,29 +3,26 @@ function solution(begin, target, words) {
         
     const checkWord = (s1, s2)=>{
         let cnt = 0;
-        [...s1].forEach((v,i)=>v !== s2[i] && cnt++)
-        return cnt===1 ? true : false;
+        for(let i=0; i<s1.length; i++){
+            s1[i] != s2[i] && cnt++;
+            if(cnt > 1) return false;
+        }
+        return true;
     }
 
-    const visit = Array(words.length).fill(false);
-    let count = 0;
-    const BFS = (word) =>{
-        const queue = [word];
+    const BFS = (arr)=>{
+        const queue = [arr];
         
         while(queue.length){
-            const qw = queue.shift();
-            for(let i=0; i<words.length; i++){
-                if(checkWord(qw, words[i]) && !visit[i]){
-                    if(words[i] === target)
-                        return count+1;
-                    queue.push(words[i]);
-                    visit[i] = true;
-                }    
+            const [w, c] = queue.shift();
+            for(const e of words){
+                if(checkWord(w, e)){
+                    if(w === target) return c;
+                    queue.push([e, c+1]);
+                }
             }
-            count++;
         }
-        return 0;
     }
     
-    return BFS(begin);
+    return BFS([begin, 0]);
 }
