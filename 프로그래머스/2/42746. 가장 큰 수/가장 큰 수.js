@@ -4,5 +4,5 @@ function solution(numbers) {
       .sort((a, b) => b + a - (a + b))
       .join("");
     
-    return (!+result ? '0' : result);
+    return +result ? result : '0';
 }
